@@ -1,0 +1,58 @@
+# Privacy Policy — CartSync
+
+_Last updated: April 18, 2026_
+
+CartSync ("the App") is a Shopify app operated by [YOUR NAME/COMPANY] ("we", "us"). This policy explains what data the App processes and why.
+
+## 1. Data we collect
+
+When a merchant installs CartSync on their Shopify store and a signed-in customer interacts with their cart, we process:
+
+- **Shop domain** (e.g. `example.myshopify.com`) — to associate data with the correct store.
+- **Customer ID** — Shopify's internal identifier for a signed-in customer. We do not collect customer names, emails, or addresses.
+- **Cart contents** — product variant IDs and quantities that the customer has in their cart.
+- **Device identifier** — a random UUID generated in the customer's browser (stored in localStorage) to distinguish devices for the same customer.
+- **Theme cart selectors** — CSS selectors detected from the merchant's theme to refresh cart UI elements after a restore.
+
+We do **not** collect payment information, customer personal details, order history, or any other customer data beyond what is listed above.
+
+## 2. How we use the data
+
+We use the data only to provide the App's functionality: saving a signed-in customer's cart on one device and restoring it when the same customer signs in from another device or returns later.
+
+We do not sell, rent, or share this data with third parties.
+
+## 3. Data storage and retention
+
+Cart data is stored in a secure database managed by us. Data is retained while the App remains installed on the merchant's store.
+
+When the App is uninstalled, we delete all data associated with the merchant's shop within 30 days, triggered automatically by Shopify's `app/uninstalled`, `shop/redact`, and `customers/redact` webhooks.
+
+## 4. Compliance webhooks
+
+CartSync subscribes to Shopify's GDPR/CCPA compliance webhooks:
+
+- `customers/data_request` — we respond with the data we hold about the requested customer, if any.
+- `customers/redact` — we delete data associated with the requested customer.
+- `shop/redact` — we delete all data associated with the requested shop.
+
+## 5. Your rights
+
+Customers whose data is processed by the App can:
+
+- Request a copy of the data we hold about them.
+- Request deletion of their data.
+
+Requests are made through the merchant's store, and the merchant forwards them to Shopify, which relays them to us via the compliance webhooks above.
+
+## 6. Security
+
+Data is transmitted over HTTPS and signed requests via Shopify's App Proxy. Only authenticated requests from Shopify are accepted by our servers.
+
+## 7. Contact
+
+For any questions about this policy, contact [YOUR EMAIL].
+
+## 8. Changes to this policy
+
+We may update this policy from time to time. The "Last updated" date above reflects the most recent revision.
