@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Privacy Policy for CartSync - Persistent Cart, a Shopify app.">
     <title>Privacy Policy — CartSync</title>
     <style>
         body {
@@ -19,7 +20,7 @@
             background: #ffffff;
             padding: 40px;
             border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
         }
         h1 {
             font-size: 28px;
@@ -32,6 +33,10 @@
         h2 {
             margin-top: 30px;
             font-size: 20px;
+        }
+        h3 {
+            margin-top: 22px;
+            font-size: 17px;
         }
         ul {
             padding-left: 20px;
@@ -47,83 +52,89 @@
         strong {
             font-weight: 600;
         }
+        @media (max-width: 600px) {
+            body {
+                padding: 16px 10px;
+            }
+            .container {
+                padding: 24px 18px;
+            }
+            h1 {
+                font-size: 24px;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Privacy Policy — CartSync</h1>
-        <p class="updated"><em>Last updated: April 18, 2026</em></p>
+    <main class="container">
+        <h1>CartSync Privacy Policy</h1>
+        <p class="updated"><em>Last updated: November 9, 2026</em></p>
 
         <p>
-            CartSync ("the App") is a Shopify app operated by <strong>[YOUR NAME/COMPANY]</strong> ("we", "us").
-            This policy explains what data the App processes and why.
+            CartSync - Persistent Cart ("CartSync") is a Shopify app. In this policy, "we" refers to CartSync.
+            This policy says what data CartSync handles for the stores that install it, who else sees it, and how long it's kept.
+        </p>
+        <p>
+            Questions and requests: <a href="mailto:risheekgurnani@gmail.com">risheekgurnani@gmail.com</a>
         </p>
 
-        <h2>1. Data we collect</h2>
-        <p>
-            When a merchant installs CartSync on their Shopify store and a signed-in customer interacts with their cart, we process:
-        </p>
+        <h2>WHAT CARTSYNC HANDLES</h2>
+
+        <h3>About a store's customers</h3>
+        <p>CartSync keeps carts only for customers signed in to the store. It keeps no cart for shoppers who aren't signed in.</p>
         <ul>
-            <li><strong>Shop domain</strong> (e.g. <code>example.myshopify.com</code>) — to associate data with the correct store.</li>
-            <li><strong>Customer ID</strong> — Shopify's internal identifier for a signed-in customer. We do not collect customer names, emails, or addresses.</li>
-            <li><strong>Cart contents</strong> — product variant IDs and quantities that the customer has in their cart.</li>
-            <li><strong>Device identifier</strong> — a random UUID generated in the customer's browser (stored in localStorage) to distinguish devices for the same customer.</li>
-            <li><strong>Theme cart selectors</strong> — CSS selectors detected from the merchant's theme to refresh cart UI elements after a restore.</li>
+            <li><strong>Customer ID:</strong> the number Shopify gives each customer. Shopify passes it to CartSync with each request from the store, so CartSync knows whose cart it is.</li>
+            <li><strong>Cart contents:</strong> the items in the cart (product, variant, title, price, quantity, and line details such as engraving text), the cart's note, and cart fields such as a gift message. CartSync keeps one saved cart per customer, a copy of their last cart that had items in it, and a record of each of their devices' carts.</li>
+            <li><strong>Device ID:</strong> a random ID made in the shopper's browser, so CartSync can tell a customer's devices apart. A cart's own token is kept only as a one-way hash.</li>
+            <li><strong>Cart history:</strong> when carts were saved, synced, restored or changed by CartSync, and the items involved.</li>
+            <li><strong>Orders:</strong> Shopify sends CartSync each new order, and each change to it. CartSync uses them to take the items bought out of the saved cart, and to count the revenue from items CartSync brought back to the cart, emailed the customer about, or showed in its "Customers also added" block. It keeps the order's ID, number, total and currency, which products were bought, whether it was paid, refunded or cancelled, and the revenue counted. An order placed without signing in is kept only when it holds an item added from that block, and then only for the revenue counted. It doesn't keep addresses or payment details.</li>
+            <li><strong>Names and emails:</strong> CartSync reads customers' names and emails from Shopify to show them to the store in CartSync's pages, and the email address to send the emails below. When the store chooses to email only customers who agreed to receive marketing emails, CartSync also reads whether they did. It doesn't store any of these.</li>
+            <li><strong>Emails sent:</strong> when the store turns on CartSync's cart reminder, price-drop or stock emails, a record of which customer ID got which email, about which product, and when.</li>
+            <li><strong>Unsubscribes:</strong> every email CartSync sends has an unsubscribe link. When a customer uses it, CartSync keeps their customer ID and when, and sends them no more emails from that store.</li>
         </ul>
         <p>
-            We do <strong>not</strong> collect payment information, customer personal details, order history, or any other customer data beyond what is listed above.
+            In the shopper's browser, CartSync's script keeps a few entries in the browser's local and session storage: the device ID, the ID of the customer whose cart that browser holds, markers such as when checkout was last clicked, and which products from the "Customers also added" block were clicked in the last day. It sets no cookies on the store's pages.
         </p>
 
-        <h2>2. How we use the data</h2>
-        <p>
-            We use the data only to provide the App's functionality: saving a signed-in customer's cart on one device and restoring it when the same customer signs in from another device or returns later.
-        </p>
-        <p>
-            We do not sell, rent, or share this data with third parties.
-        </p>
-
-        <h2>3. Data storage and retention</h2>
-        <p>
-            Cart data is stored in a secure database managed by us. Data is retained while the App remains installed on the merchant's store.
-        </p>
-        <p>
-            When the App is uninstalled, we delete all data associated with the merchant's shop within 30 days, triggered automatically by Shopify's <code>app/uninstalled</code>, <code>shop/redact</code>, and <code>customers/redact</code> webhooks.
-        </p>
-
-        <h2>4. Compliance webhooks</h2>
-        <p>CartSync subscribes to Shopify's GDPR/CCPA compliance webhooks:</p>
+        <h3>About the store</h3>
         <ul>
-            <li><code>customers/data_request</code> — we respond with the data we hold about the requested customer, if any.</li>
-            <li><code>customers/redact</code> — we delete data associated with the requested customer.</li>
-            <li><code>shop/redact</code> — we delete all data associated with the requested shop.</li>
+            <li>The store's domain, its CartSync settings, and the access Shopify grants CartSync.</li>
+            <li>The store's email, plan, country and currency, read when it installs CartSync, for our install notice and a welcome email, and the store's email and name again for a data request. They aren't kept in CartSync's database.</li>
+            <li>Product titles, images, prices and stock levels, to notice price drops and restocks.</li>
+            <li>Mail settings the store enters: its own mail server's login, the Microsoft 365 or Outlook.com mailbox it connects (the mailbox's address and Microsoft's sign-in tokens), or the connection to its Klaviyo account. The mail server's password and Microsoft's tokens are stored encrypted.</li>
+            <li>Daily counts of how CartSync is working, such as carts kept in sync.</li>
+            <li>Which products customers add to their carts together, and how often the "Customers also added" block's products are seen, clicked and added. These are counts, with nothing about who.</li>
         </ul>
 
-        <h2>5. Your rights</h2>
-        <p>
-            Customers whose data is processed by the App can:
-        </p>
+        <h2>WHO ELSE SEES IT</h2>
         <ul>
-            <li>Request a copy of the data we hold about them.</li>
-            <li>Request deletion of their data.</li>
+            <li><strong>Amazon Web Services (AWS)</strong> hosts CartSync's server and database, where all of the above is kept.</li>
+            <li><strong>Klaviyo</strong>, if the store connects it and turns emails on: the customer's email address and the product the email is about.</li>
+            <li><strong>The store's own mail server</strong>, if the store sets one up for CartSync's emails: the customer's email address and the email.</li>
+            <li><strong>Microsoft</strong>, if the store connects a Microsoft 365 or Outlook.com mailbox: the customer's email address and the email, which Microsoft sends from that mailbox.</li>
+            <li><strong>Google (Gmail)</strong> sends CartSync's own emails to store owners: a welcome email after install, and the file described under "Data requests".</li>
+            <li><strong>Crisp</strong> runs the chat in CartSync's pages in the Shopify admin. It sees what the store's staff write in the chat, and what Crisp's own policy says it collects about their browser.</li>
+            <li><strong>Our Discord</strong> gets a message when a store installs (its domain, email, plan, country and currency) or uninstalls (its domain), a daily summary of counts for each store, a note when a data request couldn't be emailed (the store and the request's number), and a note if Microsoft stops accepting CartSync's own sign-in. Nothing about customers goes there.</li>
         </ul>
+        <p>CartSync shares data only with Shopify and the service providers listed above.</p>
+
+        <h2>HOW LONG IT'S KEPT</h2>
+        <ul>
+            <li>While a store has CartSync installed, its saved carts and their history are kept with no time limit.</li>
+            <li>When Shopify asks CartSync to delete a customer's data, CartSync deletes their saved cart, device carts, cart history, email records and unsubscribe record in that store. CartSync's record of the revenue it counted keeps the amounts and a scrambled order reference, because CartSync's charges to stores may be based on it, but loses the order's ID and number and anything that says whose order it was.</li>
+            <li>When a store uninstalls CartSync, CartSync's access to the store is removed at once, and so is the connection to its Microsoft mailbox. 48 hours later Shopify asks CartSync to delete the store's data, and CartSync deletes all of it, unless the store has installed CartSync again by then.</li>
+        </ul>
+
+        <h2>DATA REQUESTS</h2>
         <p>
-            Requests are made through the merchant's store, and the merchant forwards them to Shopify, which relays them to us via the compliance webhooks above.
+            When a customer asks a store for their data through Shopify, Shopify tells CartSync. CartSync then emails the store owner, at the store's email in Shopify, a file with everything it holds about that customer in that store, for the store to pass on. If CartSync holds nothing about them, there's no email.
         </p>
 
-        <h2>6. Security</h2>
+        <h2>CONTACT</h2>
         <p>
-            Data is transmitted over HTTPS and signed requests via Shopify's App Proxy. Only authenticated requests from Shopify are accepted by our servers.
+            CartSync<br>
+            <a href="mailto:risheekgurnani@gmail.com">risheekgurnani@gmail.com</a>
         </p>
-
-        <h2>7. Contact</h2>
-        <p>
-            For any questions about this policy, contact <strong>[YOUR EMAIL]</strong>.
-        </p>
-
-        <h2>8. Changes to this policy</h2>
-        <p>
-            We may update this policy from time to time. The "Last updated" date above reflects the most recent revision.
-        </p>
-    </div>
+    </main>
 </body>
 </html>
